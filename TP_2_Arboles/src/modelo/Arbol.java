@@ -34,43 +34,85 @@ public class Arbol implements IArbol {
 	}
 	
 	@Override
-	public INodo buscar(int dni) {
-		return buscarRecursivo(raiz,dni);
+	public INodo buscarDni(int dni) {
+		return buscarRecursivoDni(raiz,dni);
 	}
 	
-	private INodo buscarRecursivo(INodo nodo, int dni) {
+	private INodo buscarRecursivoDni(INodo nodo, int dni) {
 		if(nodo == null || nodo.getDato().getDni() == dni) {
 			return nodo;
 		}
 		else if(dni < nodo.getDato().getDni()) {
-			return buscarRecursivo(nodo.getIzq(),dni);
+			return buscarRecursivoDni(nodo.getIzq(),dni);
 		}
 		else {
-			return buscarRecursivo(nodo.getDer(),dni);
+			return buscarRecursivoDni(nodo.getDer(),dni);
 		}
 	}
 	
-	public INodo eliminar(int dni) {
-		return eliminarRecursivo(raiz, dni);
+	@Override
+	public INodo buscarNombre(String nombre) {
+		return buscarRecursivoNombre(raiz,nombre);
 	}
 	
-	public INodo eliminarRecursivo(INodo nodo, int dni) {
+	private INodo buscarRecursivoNombre(INodo nodo, String nombre) {
+		int cmp = nombre.compareTo(nodo.getDato().getNombre());
+		if(nodo == null || cmp == 0) {
+			return nodo;
+		}
+		else if(cmp < 0) {
+			return buscarRecursivoNombre(nodo.getIzq(),nombre);
+		}
+		else {
+			return buscarRecursivoNombre(nodo.getDer(),nombre);
+		}
+	}
+	
+	public INodo eliminarDni(int dni) {
+		return eliminarRecursivoDni(raiz, dni);
+	}
+	
+	public INodo eliminarRecursivoDni(INodo nodo, int dni) {
 		if(nodo == null) {
 			return nodo;
 		}
 		if(dni < nodo.getDato().getDni()) {
-			nodo.setIzq(eliminarRecursivo(nodo.getIzq(),dni));
+			nodo.setIzq(eliminarRecursivoDni(nodo.getIzq(),dni));
 		}else if(dni > nodo.getDato().getDni()) {
-			nodo.setDer(eliminarRecursivo(nodo.getDer(),dni));
+			nodo.setDer(eliminarRecursivoDni(nodo.getDer(),dni));
 		}else {
 			if(nodo.getIzq() == null && nodo.getDer() == null) {
 				nodo = null;
 			}else if(nodo.getDer() != null) {
 				nodo.setDato(encontrarMin(nodo).getDato());
-				nodo.setDer(eliminarRecursivo(nodo.getDer(),nodo.getDato().getDni()));
+				nodo.setDer(eliminarRecursivoDni(nodo.getDer(),nodo.getDato().getDni()));
 			}else {
 				nodo.setDato(encontrarMax(nodo).getDato());
-				nodo.setIzq(eliminarRecursivo(nodo.getIzq(),nodo.getDato().getDni()));
+				nodo.setIzq(eliminarRecursivoDni(nodo.getIzq(),nodo.getDato().getDni()));
+			}
+		}
+		return nodo;
+	}
+	
+	public INodo eliminarNombre(String nombre) {
+		return eliminarRecursivoNombre(raiz, nombre);
+	}
+	
+	public INodo eliminarRecursivoNombre(INodo nodo, String nombre) {
+		int cmp = nombre.compareTo(nodo.getDato().getNombre());
+		if(cmp < 0) {
+			nodo.setIzq(eliminarRecursivoNombre(nodo.getIzq(),nombre));
+		}else if(cmp > 0) {
+			nodo.setDer(eliminarRecursivoNombre(nodo.getDer(),nombre));
+		}else {
+			if(nodo.getIzq() == null && nodo.getDer() == null) {
+				nodo = null;
+			}else if(nodo.getDer() != null) {
+				nodo.setDato(encontrarMin(nodo).getDato());
+				nodo.setDer(eliminarRecursivoNombre(nodo.getDer(),nodo.getDato().getNombre()));
+			}else {
+				nodo.setDato(encontrarMax(nodo).getDato());
+				nodo.setIzq(eliminarRecursivoNombre(nodo.getIzq(),nodo.getDato().getNombre()));
 			}
 		}
 		return nodo;

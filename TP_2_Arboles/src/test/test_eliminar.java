@@ -28,7 +28,19 @@ public class test_eliminar {
 		Arbol.recorInorden();
 		System.out.println("\nAntes de Eliminar(Preorder): ");
 		Arbol.recorPreorden();
-		Arbol.eliminar(332562);
+		Arbol.eliminarDni(332562);
+		System.out.println("\nDespues de Eliminar: ");
+		Arbol.recorInorden();
+		System.out.println("\nDespues de Eliminar(Preorder): ");
+		Arbol.recorPreorden();
+		
+		System.out.println("\n");
+		
+		System.out.println("Antes de Eliminar: ");
+		Arbol.recorInorden();
+		System.out.println("\nAntes de Eliminar(Preorder): ");
+		Arbol.recorPreorden();
+		Arbol.eliminarNombre("C");
 		System.out.println("\nDespues de Eliminar: ");
 		Arbol.recorInorden();
 		System.out.println("\nDespues de Eliminar(Preorder): ");

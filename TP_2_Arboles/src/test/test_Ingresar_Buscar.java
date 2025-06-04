@@ -27,11 +27,15 @@ public class test_Ingresar_Buscar {
 		Arbol.agregar(332562, "K");  // #11
 		
 		System.out.print("Busqueda de 124447: "); // #6
-		INodo nodo = Arbol.buscar(124447);
+		INodo nodo = Arbol.buscarDni(124447);
 		System.out.println(nodo.getDato().toString());
 		
 		System.out.print("Busqueda de 332562: "); // #11
-		nodo = Arbol.buscar(332562);
+		nodo = Arbol.buscarDni(332562);
+		System.out.println(nodo.getDato().toString());
+		
+		System.out.print("Busqueda de E: ");
+		nodo = Arbol.buscarNombre("E");
 		System.out.println(nodo.getDato().toString());
 
 	}
