@@ -17,7 +17,7 @@ public class Prim {
 
         // Verificar si el nodo de inicio existe en el grafo
         if (!nodos.containsKey(nodoInicio)) {
-            System.out.println("La calle " + nodoInicio + " no existe.");
+            System.out.println("El nodo inicial " + nodoInicio + " no existe.");
             return;
         }
 
@@ -45,7 +45,7 @@ public class Prim {
         }
 
         // Mostrar el árbol de expansión mínima
-        System.out.println("\nCableado de red electrica desde la calle " + nodoInicio + ":");
+        System.out.println("\nCableado de red electrica desde " + nodoInicio + ":");
         for (Arista a : mst) {
             System.out.println(a.origen + " - " + a.destino + " (peso=" + a.peso + ")");
         }

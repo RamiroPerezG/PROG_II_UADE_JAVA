@@ -27,11 +27,11 @@ public class Grafo implements IGrafo {
     public void mostrarListaAdyacencia() {
     	System.out.println("Lista de calles adyacentes:");
         for (Nodo nodo : nodos.values()) {
-            System.out.print("calle " + nodo.getValor() + ": ");
+            System.out.print("Nodo " + nodo.getValor() + ": ");
             List<INodo> vecinos = nodo.getVecinos();
             List<Integer> pesos = nodo.getPesos();
             for (int i = 0; i < vecinos.size(); i++) {
-                System.out.print("(calle " + vecinos.get(i).getValor() + ", peso=" + pesos.get(i) + ") ");
+                System.out.print("(" + vecinos.get(i).getValor() + ", peso=" + pesos.get(i) + ") ");
             }
             System.out.println();
         }
