@@ -31,8 +31,7 @@ public class TestGrafo {
         // Mostrar la lista de adyacencia del grafo (vecinos y pesos de cada nodo)
         grafo.mostrarListaAdyacencia();
 
-        // Prim para árbol de expansión mínima desde 3
-        System.out.println("\n--- Prim ---");
+        // Prim para árbol de expansión mínima desde 5
         Prim.ejecutar(grafo, 5);
         
     }
