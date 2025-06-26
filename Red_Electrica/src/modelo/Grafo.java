@@ -25,7 +25,7 @@ public class Grafo implements IGrafo {
     }
 
     public void mostrarListaAdyacencia() {
-    	System.out.println("Lista de calles adyacentes:");
+    	System.out.println("Lista de nodos adyacentes:");
         for (Nodo nodo : nodos.values()) {
             System.out.print("Nodo " + nodo.getValor() + ": ");
             List<INodo> vecinos = nodo.getVecinos();
