@@ -20,11 +20,11 @@ public class TestGrafo {
         grafo.agregarNodo(5);
 
         // Agregar aristas con pesos entre los nodos 
-        grafo.agregarArista(4, 2, 3); // 1 -> 2 con peso 3
-        grafo.agregarArista(3, 2, 1); // 1 -> 3 con peso 1
-        grafo.agregarArista(1, 4, 2); // 2 -> 4 con peso 2
-        grafo.agregarArista(1, 4, 4); // 3 -> 4 con peso 4
-        grafo.agregarArista(5, 5, 2); // 4 -> 5 con peso 2
+        grafo.agregarArista(4, 2, 3); // 4 -> 2 con peso 3
+        grafo.agregarArista(3, 2, 1); // 3 -> 2 con peso 1
+        grafo.agregarArista(1, 4, 2); // 1 -> 4 con peso 2
+        grafo.agregarArista(1, 4, 4); // 1 -> 4 con peso 4
+        grafo.agregarArista(5, 5, 2); // 5 -> 5 con peso 2
         grafo.agregarArista(5, 1, 3); // 5 -> 1 con peso 3
         grafo.agregarArista(3, 1, 1); // 3 -> 1 con peso 1
         
